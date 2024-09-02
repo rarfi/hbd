@@ -1,20 +1,23 @@
-const confettiContainer = document.querySelector('.confetti-container');
-const confettiElements = [];
+document.addEventListener("DOMContentLoaded", function() {
+  const confettiContainer = document.querySelector('.confetti-container');
 
-for (let i = 0; i < 100; i++) {
-  const confetti = document.createElement('div');
-  confetti.className = 'confetti';
-  confetti.style.top = `${Math.random() * window.innerHeight}px`;
-  confetti.style.left = `${Math.random() * window.innerWidth}px`;
-  confettiContainer.appendChild(confetti);
-  confettiElements.push(confetti);
-}
+  function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
 
-function animateConfetti() {
-  confettiElements.forEach((confetti) => {
-    confetti.style.transform = `translateY(${Math.random() * 100}px)`;
-  });
-  requestAnimationFrame(animateConfetti);
-}
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+      confetti.style.opacity = Math.random() * 0.9 + 0.1;
 
-animateConfetti();
+      confettiContainer.appendChild(confetti);
+
+      // Remove confetti after it falls out of view
+      setTimeout(() => {
+          confetti.remove();
+      }, 5000);
+  }
+
+  // Create multiple confetti
+  setInterval(createConfetti, 100);
+});
