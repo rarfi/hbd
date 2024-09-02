@@ -37,10 +37,10 @@ p {
 
 @keyframes confetti-fall {
     0% {
-        transform: translateY(-100vh) translateX(0) rotate(0deg);
+        transform: translateY(0) translateX(0);
     }
     100% {
-        transform: translateY(100vh) translateX(calc(100vw - 50px)) rotate(360deg);
+        transform: translateY(100vh) translateX(calc(100vw - 50px));
     }
 }
 

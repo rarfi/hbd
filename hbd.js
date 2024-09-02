@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         confetti.style.left = Math.random() * 100 + 'vw';
         confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.animationDuration = Math.random() * 3 + 4 + 's'; // Longer duration for smoother fall
+        confetti.style.animationDuration = Math.random() * 3 + 4 + 's'; // Duration for smoother fall
         confetti.style.animationDelay = Math.random() * 2 + 's'; // Add delay for staggered fall
-        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
         confetti.style.opacity = Math.random() * 0.7 + 0.3;
 
         confettiContainer.appendChild(confetti);
