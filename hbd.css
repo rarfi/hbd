@@ -1,0 +1,14 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    background: black;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Optional: Center text within the paragraph */
+}
+
+p {
+    color: white;
+    margin: 0;
+}
