@@ -1,24 +1,20 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const confettiContainer = document.querySelector('.confetti-container');
+const confettiContainer = document.querySelector('.confetti-container');
+const confettiElements = [];
 
-    function createConfetti() {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
+for (let i = 0; i < 100; i++) {
+  const confetti = document.createElement('div');
+  confetti.className = 'confetti';
+  confetti.style.top = `${Math.random() * window.innerHeight}px`;
+  confetti.style.left = `${Math.random() * window.innerWidth}px`;
+  confettiContainer.appendChild(confetti);
+  confettiElements.push(confetti);
+}
 
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.animationDuration = Math.random() * 3 + 4 + 's'; // Duration for smoother fall
-        confetti.style.animationDelay = Math.random() * 2 + 's'; // Add delay for staggered fall
-        confetti.style.opacity = Math.random() * 0.7 + 0.3;
+function animateConfetti() {
+  confettiElements.forEach((confetti) => {
+    confetti.style.transform = `translateY(${Math.random() * 100}px)`;
+  });
+  requestAnimationFrame(animateConfetti);
+}
 
-        confettiContainer.appendChild(confetti);
-
-        // Remove confetti after it falls out of view
-        setTimeout(() => {
-            confetti.remove();
-        }, 10000); // Increased timeout to match longer animation duration
-    }
-
-    // Create multiple confetti with a reduced interval
-    setInterval(createConfetti, 50); // More frequent creation for smoother flow
-});
+animateConfetti();
